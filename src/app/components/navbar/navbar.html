@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <!-- Left -->
+  <div class="left">
+    <a routerLink="/Product_app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      Products App
+    </a>
+  </div>
+
+  <!-- Hamburger (mobile only) -->
+  <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+
+  <!-- Right -->
+  <div class="right" [class.open]="menuOpen">
+    <a routerLink="/login" routerLinkActive="active-link">Login</a>
+    <a routerLink="/register" routerLinkActive="active-link">Register</a>
+    <a routerLink="/cart" routerLinkActive="active-link">
+      <img src="/shopping-cart.png" alt="cart" width="30" height="30">
+    </a>
+  </div>
+</nav>

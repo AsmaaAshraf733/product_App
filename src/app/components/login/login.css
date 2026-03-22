@@ -1,0 +1,217 @@
+/* ===== Full-page wrapper ===== */
+.login-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   
+  align-items: center;      
+  font-family: Arial, sans-serif;
+  padding: 0 10px;          
+  box-sizing: border-box;
+}
+
+/* ===== Background Image ===== */
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ===== Form container ===== */
+.admin-form {
+  position: relative;
+  z-index: 1;
+  width: 90%;              
+  max-width: 500px;       
+  min-width: 280px;        
+  padding: 30px;
+  margin: 50px auto;       
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  box-sizing: border-box;
+  transition: width 0.3s ease;
+}
+
+/* ===== Form fields ===== */
+.form-field {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: #354edc;
+  box-shadow: 0 0 5px rgba(53, 78, 220, 0.3);
+}
+
+/* ===== Checkbox field ===== */
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.checkbox-field input {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+/* ===== Submit button ===== */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: #354edc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #353bdc;
+}
+
+.submit-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* ===== Field status ===== */
+.field-status,
+.form-status {
+  font-family: monospace;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+/* ===== Preformatted text styling ===== */
+pre {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ===== Responsive Styles ===== */
+
+/* Laptops / larger screens */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .admin-form {
+    max-width: 600px;  
+    width: 80%;
+    margin: 50px auto;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .admin-form {
+    max-width: 450px;
+    width: 85%;
+    padding: 25px;
+    margin: 40px auto;
+  }
+
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  select {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  .admin-form {
+    max-width: 360px;
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  select {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 11px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .admin-form {
+    max-width: 280px;
+    width: 95%;
+    padding: 18px;
+    margin: 10px auto;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  select {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

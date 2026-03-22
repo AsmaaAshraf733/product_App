@@ -1,0 +1,39 @@
+ <div class="products-container">
+  <div class="products-grid">
+    @for (product of products; track product.id) {
+      <div class="product-card">
+        <div class="image-container">
+          <img [src]="product.images[0]" alt="{{ product.title }}" class="product-image" />
+
+          @if (product.stock && product.stock > 0)  {
+            <span class="stock-badge in-stock">In Stock</span>
+          } @else {
+            <span class="stock-badge out-of-stock">Out of Stock</span>
+          }
+        </div>
+
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">{{ product.price | currency }}</p>
+        <p class="stars" [innerHTML]="product.rating | ratingPipe"></p>
+
+        <div class="actions">
+          <!-- Add to Cart Button -->
+          <button 
+            class="add-to-cart-btn" 
+            (click)="addToCart(product)" 
+            [disabled]="product.stock === 0">
+            {{ product.stock === 0 ? 'Cannot Add (Out of Stock)' : 'Add to Cart 🛒' }}
+          </button>
+
+          <!-- View Details Button -->
+          <button 
+            class="view-details-btn" 
+            (click)="viewDetails(product)">
+            View Details 🔍
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

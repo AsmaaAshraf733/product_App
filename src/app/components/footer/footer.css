@@ -1,0 +1,84 @@
+.footer {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-container {
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between; /* pushes left and right apart */
+  align-items: flex-start;        /* top-align on wrap */
+  flex-wrap: wrap;                /* allow wrapping on small screens */
+}
+
+/* Contact Section */
+.footer-contact {
+  flex: 1 1 250px;   /* grow/shrink but minimum 250px */
+  text-align: left;
+}
+
+.footer-contact h2 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Social Section */
+.footer-social {
+  padding-right: 20px;
+  flex: 1 1 200px;
+  text-align: right;
+}
+
+.footer-social h2 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+}
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Copyright */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;   /* center content */
+    text-align: center;    /* center text */
+  }
+
+  .footer-contact,
+  .footer-social {
+    flex: 1 1 100%;        /* full width */
+    text-align: center;    /* center on mobile */
+  }
+
+  .footer-social a {
+    margin: 0 8px;         /* tighter spacing */
+  }
+}

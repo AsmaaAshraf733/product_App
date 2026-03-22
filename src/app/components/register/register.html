@@ -1,0 +1,111 @@
+<div class="register-wrapper">
+  <img src="/bg2.jpg" alt="Background" class="bg-image">
+
+  <div class="registr-form">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+
+      <!-- Email -->
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" formControlName="email">
+
+        @if(userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+        <div class="error-message">
+          @if(userForm.get('email')?.errors?.['required']) {
+          <span>Email is required</span>
+          }
+          @if(userForm.get('email')?.errors?.['email']) {
+          <span>Enter a valid email address</span>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Name -->
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+
+        @if(userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+        <div class="error-message">
+          @if(userForm.get('name')?.errors?.['required']) {
+          <span>Name is required</span>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Username -->
+      <div class="form-field">
+        <label for="userName">Username</label>
+        <input type="text" id="userName" formControlName="userName">
+
+        @if(userForm.get('userName')?.invalid && userForm.get('userName')?.touched) {
+        <div class="error-message">
+          @if(userForm.get('userName')?.errors?.['required']) {
+          <span>Username is required</span>
+          }
+          @if(userForm.get('userName')?.errors?.['hasSpaces']) {
+          <span>Username cannot contain spaces</span>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+
+        <!-- Validations -->
+        @if(userForm.get('password')?.touched ) {
+        <div class="error-message">
+
+          <!-- Show required only if empty -->
+          @if(userForm.get('password')?.errors?.['required']) {
+          <span>Password is required</span>
+          }
+
+          <!-- Show other errors only if not empty -->
+          @if(!userForm.get('password')?.errors?.['required'] && userForm.get('password')?.errors?.['minlength']) {
+          <span>Password must be at least 8 characters<br></span>
+          }
+
+          @if(!userForm.get('password')?.errors?.['required'] && userForm.get('password')?.errors?.['weakPassword']) {
+          <span>Password must include uppercase, lowercase, number, and special character</span>
+          }
+
+        </div>
+        }
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-field">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+
+        @if(userForm.get('confirmPassword')?.touched) {
+        <div class="error-message">
+          @if(userForm.get('confirmPassword')?.errors?.['required']) {
+          <span>Confirm Password is required</span>
+          }
+          @if(userForm.get('confirmPassword')?.value !== userForm.get('password')?.value) {
+          <span>Passwords do not match</span>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn" [disabled]="userForm.invalid">Register</button>
+
+      <p style="text-align: center;">Already have an account ! <a routerLink="/login">Login</a></p>
+
+      <!--disable to prevent user to submit before  fix inputs 
+    <div class="form-status">
+        <p>form valid: {{userForm.valid}}</p>
+    </div>-->
+
+    </form>
+  </div>
+</div>

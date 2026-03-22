@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Layout wrapper for sticky footer */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content area (push below navbar height) */
+.content {
+  flex: 1;
+  padding: 40px 20px 20px; 
+  box-sizing: border-box;
+}
+

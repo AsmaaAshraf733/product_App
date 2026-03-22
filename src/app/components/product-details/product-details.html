@@ -1,0 +1,62 @@
+<!-- Product Detail Modal/Container -->
+<div class="product-detail-container">
+  @if (currentProduct) {
+    <div class="product-detail">
+      
+      <!-- ===== LEFT: Product Image ===== -->
+      <div class="detail-left">
+        @if (currentProduct.images && currentProduct.images.length > 0) {
+          <img 
+            src="{{ currentProduct.images[0] }}" 
+            alt="{{ currentProduct.title }}" 
+            class="detail-image"
+          />
+        } @else {
+          <div class="image-placeholder">No Image Available</div>
+        }
+      </div>
+
+      <!-- ===== RIGHT: Product Info ===== -->
+      <div class="detail-right">
+        <h2>{{ currentProduct.title }}</h2>
+        <p class="product-id">Product ID: {{ currentProduct.id }}</p>
+        <p class="product-description">{{ currentProduct.description }}</p>
+        <p class="detail-price">{{ currentProduct.price | currency:'USD':'symbol':'1.2-2' }}</p>
+
+        <!-- Rating -->
+        <div class="product-rating">
+          <span class="stars" innerHTML="{{ currentProduct.rating | ratingPipe }}"></span>
+          <span class="rating-value">({{ currentProduct.rating }}/5)</span>
+        </div>
+
+        <!-- Stock -->
+        @if (currentProduct.stock && currentProduct.stock > 0) {
+          <p class="detail-stock">
+            <span class="stock-badge in-stock">In Stock ({{ currentProduct.stock }})</span>
+          </p>
+        } @else {
+          <p class="detail-stock">
+            <span class="stock-badge out-of-stock">Out of Stock</span>
+          </p>
+        }
+
+        <!-- Add to Cart Button -->
+<button 
+  class="add-to-cart-btn" 
+  (click)="addToCart()" 
+  [disabled]="currentProduct.stock === 0">
+  {{ currentProduct.stock === 0 ? 'Cannot Add (Out of Stock)' : 'Add to Cart 🛒' }}
+</button>
+
+<!-- View Details Button -->
+<button 
+  class="view-details-btn" 
+  (click)="viewMoreDetails(currentProduct)">
+  View More Details 🔍
+</button>
+      </div>
+    </div>
+  } @else {
+    <p class="loading-text">Loading product details...</p>
+  }
+</div>

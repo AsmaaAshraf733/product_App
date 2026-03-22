@@ -1,0 +1,74 @@
+/* Base */
+nav.navbar {
+  position: fixed;          
+  top: 0;                   
+  left: 0;
+  right: 0px;              /* push in from the right by 30px */
+  width: auto;              /* let left + right define the width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 12px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;           
+}
+
+nav .left a {
+  font-weight:bold;
+  font-size: 25px;
+  color: forestgreen;
+  text-decoration: none;
+}
+
+nav .right {
+  display: flex;
+  gap: 40px;
+}
+
+nav .right a {
+  text-decoration: none;
+  font-size: large;
+  color: black;
+  transition: color 0.2s ease-in-out;
+}
+
+nav .right a:hover {
+  color: blue;
+}
+
+.active-link {
+  font-weight: bold;
+ 
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav .right {
+    position: absolute;
+    top: 60px; /* below navbar */
+    right: 0;
+    background: #f5f5f5;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  nav .right.open {
+    display: flex;
+  }
+}
